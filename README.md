@@ -60,12 +60,12 @@ We experimented with different set of augmentation methods, it turns out that el
 
 We also applied the Overlap-tile strategy for seamless segmentation as suggested by the paper, missing data at 4 edges are extrapolated by mirroring.
 
-<img src="imgs/input_label.png" width="1000" height="500" />
+<img src="imgs/input_label.png" width="1000" height="400" />
 
 ### Model
 The model is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) with slightly changes for the padding of the expanding path to keep the output size as the same as the lalel images of 512*512.
 
-<img src="imgs/model.png" width="1000" height="500" />
+<img src="imgs/model.png" width="1000" height="450" />
 
 This deep neural network is implemented with PyTorch functional API, which makes it extremely easy to experiment with different interesting architectures.
 

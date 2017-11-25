@@ -45,8 +45,7 @@ The architecture is originally from [U-Net: Convolutional Networks for Biomedica
 
 ### Data Pre-processing
 
-[Provided data](http://brainiac2.mit.edu/isbi_challenge/) you can download the train and test data from this server.
-you can also find data in the data folder.
+[Provided data](http://brainiac2.mit.edu/isbi_challenge/) including the train and test data can be downloaded from this server.
 
 The images are 3-D volume tiff, you should transfer the stacks into images first.
 The data for training contains 30 512*512 images, which are far not enough to feed a deep learning neural network.
@@ -59,6 +58,8 @@ We experimented with different set of augmentation methods, it turns out that el
 We also applied the Overlap-tile strategy for seamless segmentation as suggested by the paper, missing data at 4 edges are extrapolated by mirroring.
 
 <img src="imgs/input_label.png" width="1000" height="450" />
+
+The augmented data set can be downloaded form [here]((https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing)) as noted in the first section.
 
 ### Model Architecture
 The model is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) with slightly changes for the padding of the expanding path to keep the output size as the same as the lalel images of 512*512.
@@ -84,17 +85,3 @@ Loss function for the training is just a binary cross-entropy as suggested in th
 
 Use the trained model to do segmentation on test images, the result is statisfactory.
 ![imgs/prediction.png](imgs/prediction.png)
-
-## About Keras
-
-Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is key to doing good research.
-
-Use Keras if you need a deep learning library that:
-
-allows for easy and fast prototyping (through total modularity, minimalism, and extensibility).
-supports both convolutional networks and recurrent networks, as well as combinations of the two.
-supports arbitrary connectivity schemes (including multi-input and multi-output training).
-runs seamlessly on CPU and GPU.
-Read the documentation [Keras.io](http://keras.io/)
-
-Keras is compatible with: Python 2.7-3.5.

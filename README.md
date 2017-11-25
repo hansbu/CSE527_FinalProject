@@ -58,10 +58,14 @@ We experimented with different set of augmentation methods, it turns out that el
 
 <img src="imgs/elastic_transform.png" width="400" height="400" />
 
+We also applied the Overlap-tile strategy for seamless segmentation as suggested by the paper, missing data at 4 edges are extrapolated by mirroring.
+
+<img src="imgs/input_label.png" width="1000" height="500" />
+
 ### Model
 The model is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) with slightly changes for the padding of the expanding path to keep the output size as the same as the lalel images of 512*512.
 
-<img src="imgs/model.png" width="1000" height="400" />
+<img src="imgs/model.png" width="1000" height="500" />
 
 This deep neural network is implemented with PyTorch functional API, which makes it extremely easy to experiment with different interesting architectures.
 
@@ -70,25 +74,13 @@ is applied to make sure that mask pixels are in \[0, 1\] range.
 
 ### Training
 
-The model is trained for 10 epochs.
+The original training set of 30 images is divided into training set (first 25 images) and evaluation set (last 5 images). Same data-preprocessing augmentation is applied on both training set and evaluation set. Note that data augmentation can create similar images. Hence, we fixed training set as first 25 images instead of randomly picking after pre-processing because it will guarantee that the network will not see similar image during evaluation from training set.
 
-After 10 epochs, calculated accuracy is about 0.97.
-
-Loss function for the training is basically just a binary crossentropy
+The model is trained for 12 epochs, equivalently to 5hrs on GTX 1080 ti, 11GB.
+Checkpoints are save after every 2 epochs and evaluated on the evaluation set based on Foreground-restricted Rand Scoring after border thinning score using RandThinSore.bsh script.
+Loss function for the training is just a binary cross-entropy as suggested in the paper.
 
 ---
-
-### Define the model
-
-* Check out ```get_unet()``` in ```unet.py``` to modify the model, optimizer and loss function.
-
-### Train the model and generate masks for test images
-
-* Run ```python unet.py``` to train the model.
-
-
-After this script finishes, in ```imgs_mask_test.npy``` masks for corresponding images in ```imgs_test.npy```
-should be generated. I suggest you examine these masks for getting further insight of your model's performance.
 
 ### Results
 

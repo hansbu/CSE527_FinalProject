@@ -1,26 +1,30 @@
 # CSE527_Final_Project
 
 ##IMPORTANT:
-The trained model cannot be uploaded into Github, you can download from here, save the file in the same folder with the program, do not change its name.
-https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing
+The trained model cannot be uploaded into Github, you can download from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save the file in the same folder with the program, do not change its name.
 
-The training and test data originally contains only 30images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30images, we augmented into 8820images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.
+The training and test data originally contains only 30images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30 images, we augmented into 8820 images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.
 
 In order to train the network, download these [augmented data](https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing). Put all .npy into folder data/dataset and run UnetTrain.py
 
+# Quick Instruction to Run program
+1. Clone all above files into local machine.
+2. Download trained model as noted above from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save in the same folder as the file Run_Result.py
+3. From terminal, run Run_Result.py with the format"python Run_Result.py [Input_image_path] [label_image]"
 
 # ISBI Challenges: Segmentation of Neuronal Structures in EM stacks
 
-This repository holds the code for the [carnava image making challenge](https://www.kaggle.com/c/carvana-image-masking-challenge). It's meant to show how to construct Unets with Pytorch in a concise and straightforward way.
+This repository holds the code for the [ISBI Challenges](http://brainiac2.mit.edu/isbi_challenge/). It's meant to show how to construct Unets with Pytorch in a concise and straightforward way.
 
 # Dependencies
 
- - Pytorch 0.2.0
+ - [Pytorch 0.2.0](http://pytorch.org/)
  - Numpy
  - [OpenCV-Python](https://pypi.python.org/pypi/opencv-python)
-# Implementation of deep learning framework -- Unet, using Keras
 
-The architecture was inspired by [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/).
+# Implementation of deep learning framework -- Unet, using Pytorch
+
+The architecture is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/).
 
 ---
 

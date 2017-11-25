@@ -55,8 +55,8 @@ The data for training contains 30 512*512 images, which are far not enough to fe
 To do data augmentation, an image deformation method was used, which was implemented in python using opencv and Keras.
 In this project data pre-processing is one of the most important part. Therefore, excessive data augmentation is applied including rotation, shift, intensity changes, and elastic transform.
 We experimented with different set of augmentation methods, it turns out that elastic transformation plays the most crucial role. More on elastic transform can be found [here](http://faculty.cs.tamu.edu/schaefer/research/mls.pdf)
-![imgs/elastic_transform.png](imgs/elastic_transform.png =250x)
-<img src="imgs/elastic_transform.png" width="200" height="200" />
+<img src="imgs/elastic_transform.png" width="400" height="400" />
+
 ### Model
 ![img/u-net-architecture.png](img/u-net-architecture.png)
 

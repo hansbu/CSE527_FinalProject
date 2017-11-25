@@ -53,7 +53,7 @@ To do data augmentation, an image deformation method was used, which was impleme
 In this project data pre-processing is one of the most important part. Therefore, excessive data augmentation is applied including rotation, shift, intensity changes, and elastic transform.
 We experimented with different set of augmentation methods, it turns out that elastic transformation plays the most crucial role. More on elastic transform can be found [here](http://faculty.cs.tamu.edu/schaefer/research/mls.pdf)
 
-<img src="imgs/elastic_transform.png" width="400" height="380" />
+<img src="imgs/elastic_transform.png" width="600" height="580" />
 
 We also applied the Overlap-tile strategy for seamless segmentation as suggested by the paper, missing data at 4 edges are extrapolated by mirroring.
 

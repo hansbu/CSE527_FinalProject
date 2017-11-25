@@ -61,7 +61,7 @@ We experimented with different set of augmentation methods, it turns out that el
 ### Model
 The model is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) with slightly changes for the padding of the expanding path to keep the output size as the same as the lalel images of 512*512.
 
-<img src="imgs/model.png" width="400" height="400" />
+<img src="imgs/model.png" width="1000" height="400" />
 
 This deep neural network is implemented with PyTorch functional API, which makes it extremely easy to experiment with different interesting architectures.
 

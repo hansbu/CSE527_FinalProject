@@ -55,10 +55,9 @@ The data for training contains 30 512*512 images, which are far not enough to fe
 To do data augmentation, an image deformation method was used, which was implemented in python using opencv and Keras.
 In this project data pre-processing is one of the most important part. Therefore, excessive data augmentation is applied including rotation, shift, intensity changes, and elastic transform.
 We experimented with different set of augmentation methods, it turns out that elastic transformation plays the most crucial role. More on elastic transform can be found [here](http://faculty.cs.tamu.edu/schaefer/research/mls.pdf)
-![imgs/elastic_transform.png](imgs/elastic_transform.png)
+![imgs/elastic_transform.png](imgs/elastic_transform.png =250x)
 
 ### Model
-
 ![img/u-net-architecture.png](img/u-net-architecture.png)
 
 This deep neural network is implemented with Keras functional API, which makes it extremely easy to experiment with different interesting architectures.
@@ -75,31 +74,6 @@ After 10 epochs, calculated accuracy is about 0.97.
 Loss function for the training is basically just a binary crossentropy
 
 ---
-
-## How to use
-
-### Dependencies
-
-This tutorial depends on the following libraries:
-
-* Tensorflow
-* Keras >= 1.0
-* libtiff(optional)
-
-Also, this code should be compatible with Python versions 2.7-3.5.
-
-### Prepare the data
-
-First transfer 3D volume tiff to 30 512*512 images.
-
-To feed the unet, data augmentation is necessary.
-
-An [image deformation](http://faculty.cs.tamu.edu/schaefer/research/mls.pdf) method is used, the code is
-
-availabel in this [repository](https://github.com/cxcxcxcx/imgwarp-opencv).
-
-
-
 
 ### Define the model
 

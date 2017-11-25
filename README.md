@@ -57,9 +57,9 @@ We experimented with different set of augmentation methods, it turns out that el
 
 We also applied the Overlap-tile strategy for seamless segmentation as suggested by the paper, missing data at 4 edges are extrapolated by mirroring.
 
-<img src="imgs/input_label.png" width="1000" height="450" />
+<img src="imgs/input_label.png" width="800" height="450" />
 
-The augmented data set can be downloaded form [here]((https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing)) as noted in the first section.
+The augmented data set can be downloaded form [here](https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing) as noted in the first section.
 
 ### Model Architecture
 The model is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) with slightly changes for the padding of the expanding path to keep the output size as the same as the lalel images of 512*512.

@@ -1,6 +1,6 @@
-# CSE527_Final_Project
+# CSE527 Final Project
 
-##IMPORTANT:
+###IMPORTANT:
 The trained model cannot be uploaded into Github, you can download from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save the file in the same folder with the program, do not change its name.
 
 The training and test data originally contains only 30images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30 images, we augmented into 8820 images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.

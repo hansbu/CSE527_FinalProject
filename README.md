@@ -82,3 +82,6 @@ Loss function for the training is just a binary cross-entropy as suggested in th
 
 Use the trained model to do segmentation on test images, the result is statisfactory.
 ![imgs/prediction.png](imgs/prediction.png)
+
+
+![imgs/prediction.png](imgs/ranking.png)

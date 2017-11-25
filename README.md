@@ -1,7 +1,12 @@
 # CSE527_Final_Project
 
-*IMPORTANT:The trained model cannot be uploaded into Github, you can download from here, save the file in the same folder with the program, do not change its name
+##IMPORTANT:
+The trained model cannot be uploaded into Github, you can download from here, save the file in the same folder with the program, do not change its name.
 https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing
+
+The training and test data originally contains only 30images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30images, we augmented into 8820images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.
+
+In order to train the network, download these [augmented data](https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing). Put all .npy into folder data/dataset and run UnetTrain.py
 
 
 # ISBI Challenges: Segmentation of Neuronal Structures in EM stacks
@@ -69,7 +74,7 @@ First transfer 3D volume tiff to 30 512*512 images.
 
 To feed the unet, data augmentation is necessary.
 
-An [image deformation](http://faculty.cs.tamu.edu/schaefer/research/mls.pdf) method is used, the code is 
+An [image deformation](http://faculty.cs.tamu.edu/schaefer/research/mls.pdf) method is used, the code is
 
 availabel in this [repository](https://github.com/cxcxcxcx/imgwarp-opencv).
 

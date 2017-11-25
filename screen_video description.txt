@@ -9,7 +9,3 @@ The model was train for 5hrs. The best model was saved with the name:
 The model can be loaded and run in machine with CPU or GPU.
 Test time per image using GPU is around 0.85sec
 Test time per image using CPU is much slower (around 15-40secs)
-
-
-link Youtube: 
-https://www.youtube.com/watch?v=r_hPLDwWi6A

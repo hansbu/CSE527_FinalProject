@@ -2,16 +2,16 @@
 ---
 
 ### IMPORTANT NOTE
-The trained model cannot be uploaded into Github (it is more than 100MB), so, please download from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save the file in the same folder with the program, do not change its name.
+The trained model cannot be uploaded into Github (it is more than 100MB). So, please download from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save the file in the same folder with the program, do not change its name.
 
 The training and test data originally contains only 30 images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30 images, we augmented into 8820 images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.
 
 In order to train the network from scratch, download these [augmented data](https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing). Put all .npy files into folder data/dataset and run UnetTrain.py
 
 # Quick Instructions to Run the Program
-1. Clone all above files into local machine.
+1. Download all files in this repository into local machine.
 2. Download trained model as noted above from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save in the same folder as the file Run_Result.py
-3. From terminal, run Run_Result.py with the format"python Run_Result.py [Input_image_path] [label_image]"
+3. From terminal, run Run_Result.py with the format "python Run_Result.py [Input_image_path] [label_image]"
 
 # ISBI Challenges: Segmentation of Neuronal Structures in EM stacks
 
@@ -76,7 +76,7 @@ is applied to make sure that mask pixels are in \[0, 1\] range.
 The original training set of 30 images is divided into training set (first 25 images) and evaluation set (last 5 images). Same data-preprocessing augmentation is applied on both training set and evaluation set. Note that data augmentation can create similar images. Hence, we fixed training set as first 25 images instead of randomly picking after pre-processing because it will guarantee that the network will not see similar image during evaluation from training set.
 
 The model is trained for 12 epochs, equivalently to 5hrs on GTX 1080 ti, 11GB.
-Checkpoints are save after every 2 epochs and evaluated on the evaluation set based on Foreground-restricted Rand Scoring after border thinning score using RandThinSore.bsh script.
+Checkpoints are saved after every 2 epochs and evaluated on the evaluation set based on Foreground-restricted Rand Scoring after border thinning score using RandThinSore.bsh script.
 Loss function for the training is just a binary cross-entropy as suggested in the paper.
 
 ---

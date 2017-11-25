@@ -59,12 +59,14 @@ We experimented with different set of augmentation methods, it turns out that el
 <img src="imgs/elastic_transform.png" width="400" height="400" />
 
 ### Model
-![img/u-net-architecture.png](img/u-net-architecture.png)
+The model is originally from [U-Net: Convolutional Networks for Biomedical Image Segmentation](http://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) with slightly changes for the padding of the expanding path to keep the output size as the same as the lalel images of 512*512.
 
-This deep neural network is implemented with Keras functional API, which makes it extremely easy to experiment with different interesting architectures.
+<img src="imgs/model.png" width="400" height="400" />
+
+This deep neural network is implemented with PyTorch functional API, which makes it extremely easy to experiment with different interesting architectures.
 
 Output from the network is a 512*512 which represents mask that should be learned. Sigmoid activation function
-makes sure that mask pixels are in \[0, 1\] range.
+is applied to make sure that mask pixels are in \[0, 1\] range.
 
 ### Training
 

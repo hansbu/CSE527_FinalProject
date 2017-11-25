@@ -1,14 +1,14 @@
 # CSE527 Final Project
 ---
 
-### IMPORTANT:
-The trained model cannot be uploaded into Github, you can download from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save the file in the same folder with the program, do not change its name.
+### IMPORTANT
+The trained model cannot be uploaded into Github (it is more than 100MB), so, please download from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save the file in the same folder with the program, do not change its name.
 
-The training and test data originally contains only 30images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30 images, we augmented into 8820 images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.
+The training and test data originally contains only 30 images each which can be found [here](http://brainiac2.mit.edu/isbi_challenge/downloads). Since we are training deep model, those are far beyond enough. Hence, heavy augmentation is used. From initial 30 images, we augmented into 8820 images using multiple methods including rotation, shift, intensity changes, and elastic transformation. Details are in the section below.
 
-In order to train the network, download these [augmented data](https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing). Put all .npy into folder data/dataset and run UnetTrain.py
+In order to train the network from scratch, download these [augmented data](https://drive.google.com/drive/folders/1zikzGhtTe-RR-LzRBKXMx2D6vu2Ksy0i?usp=sharing). Put all .npy files into folder data/dataset and run UnetTrain.py
 
-# Quick Instruction to Run program
+# Quick Instructions to Run program
 1. Clone all above files into local machine.
 2. Download trained model as noted above from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save in the same folder as the file Run_Result.py
 3. From terminal, run Run_Result.py with the format"python Run_Result.py [Input_image_path] [label_image]"
@@ -22,6 +22,7 @@ This repository holds the code for the [ISBI Challenges](http://brainiac2.mit.ed
  - [Pytorch 0.2.0](http://pytorch.org/)
  - Numpy
  - [OpenCV-Python](https://pypi.python.org/pypi/opencv-python)
+ - [Keras 2.0.8](https://faroit.github.io/keras-docs/2.0.8/) (for data augmentation only)
 
 # Implementation of deep learning framework -- Unet, using Pytorch
 
@@ -30,6 +31,17 @@ The architecture is originally from [U-Net: Convolutional Networks for Biomedica
 ---
 
 ## Overview
+
+### Files Explanation
+- Analysis.py: script for model analysis, save output of test set.
+- RandThinSore.bsh: script to assess the model evaluation for Foreground-restricted Rand Scoring after border thinning. Detail is from [Challenge website](http://brainiac2.mit.edu/isbi_challenge/evaluation)
+- Run_Result.py: main script to run the trained model on new input.
+- UnetTrain.py: to train the model. The trained model was trained for 12 epochs for 5hrs
+- Utils.py: external functions.
+- data.py: perform data augmentation
+- elastic_transform.py: function for data augmentation called elastic transform.
+- split_merge_tif.py: function to split the image stack and merge them back together after processed.
+- tifffile.py: external library to read and write .tif image files.
 
 ### Data
 

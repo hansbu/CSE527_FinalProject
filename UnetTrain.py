@@ -169,8 +169,8 @@ if __name__ == '__main__':
     '''
     start_begining = time.time()
 
-    # path = "data/dataset"
-    path = "/home/anhxtuan/HanLe/dataset/20aug_10ela_3inten_reflect"
+    path = "data/dataset"
+    # path = "/home/anhxtuan/HanLe/dataset/20aug_10ela_3inten_reflect"
 
     import os
     print("Does the folder exist?: ", os.path.isdir(path))
@@ -185,26 +185,13 @@ if __name__ == '__main__':
     valset = zip(imgs_val, imgs_mask_val)
     valloader = torch.utils.data.DataLoader(valset, batch_size=batch_size,
                                               shuffle=False, num_workers=2)
-    # net = Unet.UNet()                     # Unet 1
     net = Unet_model.UNet_BN()          # Unet 2 with batchNorm
 
-    f1 = open("Unet_model.py", 'r')     # embede code into the model to be saved later
-    f2 = open("UnetTrain.py", 'r')
-    f3 = open("Utils.py", 'r')
-    model_notes = time.strftime("%c") + "\n" + f1.read() + "\n" + "==="*5 + f2.read() + "\n" + "==="*5 + f3.read()
-    f1.close()
-    f2.close()
-    f3.close()
-
     criterion = BinaryCrossEntropyLoss2d()
-    # criterion = SoftDiceLoss()
-    # criterion = nn.BCELoss()
-
     if torch.cuda.is_available():
         # torch.set_default_tensor_type('torch.cuda.FloatTensor')
         # net.load_state_dict(torch.load("Unet2_model_12epoch_Leg12_dropout_0_2_rmSigmoid_20aug_10ela_3inten_reflect"))
         net.cuda()
-        # criterion.cuda()
 
     opt = optim.SGD(net.parameters(), lr=1e-5, momentum=0.8)       # subject to change
     # opt = optim.RMSprop(net.parameters(), lr=2e-4)
@@ -215,11 +202,11 @@ if __name__ == '__main__':
     val_loss = []
 
     print("[epoch, #image] Loss")
-    leg = "Leg21_finetuneLeg12_dropout_0_2_rmSigmoid_20aug_10ela_3inten_reflect"
+    leg = "Leg21_model_saved"
     print("Processing: ", leg)
     model_name = ""
 
-    N_epoch = 6
+    N_epoch = 12
     model_saved = np.arange(2,N_epoch+1,2)
     val_loss_min = 100
 
@@ -229,7 +216,7 @@ if __name__ == '__main__':
     write_2_log(model_notes)
     write_2_log(time.strftime("%c"))  # time, date of exp
     write_2_log(leg)
-    write_2_log("optim.SGD(net.parameters(), lr=1e-5, momentum=0.8)")
+    write_2_log("optim.SGD(net.parameters(), lr=1e-2, momentum=0.99)")
     write_2_log("Number of epoch max: " + str(N_epoch))
 
 
@@ -285,5 +272,4 @@ if __name__ == '__main__':
     # Analysis.analysis(model_file="Unet2_model_" + leg + "_min_val_loss", valloader=valloader)
 
     Analysis.PlotLoss(model_file = model_name, loss_train_path = train_loss_file, loss_val_path = val_loss_file, epoch_No = N_epoch)
-
     write_2_log(time.strftime("%c"))  # time, date of exp

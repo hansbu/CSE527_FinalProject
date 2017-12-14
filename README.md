@@ -13,6 +13,8 @@ In order to train the network from scratch, download these [augmented data](http
 2. Download trained model as noted above from [here](https://drive.google.com/a/cs.stonybrook.edu/file/d/1AcWFEFYmsfULmaVKdfd6M_mHbYD9_Ngn/view?usp=sharing), save in the same folder as the file Run_Result.py
 3. From terminal, run Run_Result.py with the format "python Run_Result.py [Input_image_path] [label_image]"
 
+Demo video can be found in [Youtube](https://www.youtube.com/watch?v=r_hPLDwWi6A&t=87s)
+
 # ISBI Challenges: Segmentation of Neuronal Structures in EM stacks
 
 This repository holds the code for the [ISBI Challenges](http://brainiac2.mit.edu/isbi_challenge/). It's meant to show how to construct Unets with Pytorch in a concise and straightforward way.
